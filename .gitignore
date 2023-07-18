@@ -1,0 +1,7 @@
+infoblox_exporter/__pycache__/
+venv
+.idea
+config.yml
+notes.txt
+dist
+build
