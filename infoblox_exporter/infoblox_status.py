@@ -18,11 +18,10 @@
     along with fortigate_exporter.  If not, see <http://www.gnu.org/licenses/>.
 
 """
-import logging
 from typing import Dict, Any
 
 from prometheus_client import Metric
-from prometheus_client.core import CounterMetricFamily, GaugeMetricFamily
+from prometheus_client.core import GaugeMetricFamily
 
 from infoblox_exporter.transform import Transform, LabelsBase
 
