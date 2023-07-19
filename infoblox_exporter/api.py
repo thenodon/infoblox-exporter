@@ -68,6 +68,4 @@ class InfoBlox:
             range = self.conn.get_object('range', {'network': network}, return_fields=return_fields_range)
             return range[0]['dhcp_utilization']
         except Exception as err:
-            raise InfobloxException("Not a valid network",status=400)
-
-
+            raise InfobloxException("Not a valid network", status=400)
