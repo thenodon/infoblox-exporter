@@ -70,7 +70,7 @@ class InfobloxCollector:
             elif self.module == Modules.DHCP_UTILIZATION.value:
                 all_tasks.append(asyncio.create_task(self._collect_dhcp_ranges()))
             else:
-                raise InfobloxException(message=f"Not a valid module {self.module}",status=400)
+                raise InfobloxException(message=f"Not a valid module {self.module}", status=400)
 
             await asyncio.gather(*all_tasks)
             for task in all_tasks:
