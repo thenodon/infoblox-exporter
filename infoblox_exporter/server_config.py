@@ -19,11 +19,11 @@
 
 """
 
-import os
 import logging
+import os
 from functools import lru_cache
 
-from pydantic import AnyUrl, BaseSettings
+from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
