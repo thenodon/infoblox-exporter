@@ -27,8 +27,8 @@ from pydantic import AnyUrl, BaseSettings
 
 
 class Settings(BaseSettings):
-    basic_auth_username: str = os.getenv("BASIC_AUTH_USERNAME", "mother")
-    basic_auth_password: str = os.getenv("BASIC_AUTH_PASSWORD", "mother")
+    basic_auth_username: str = os.getenv("BASIC_AUTH_USERNAME")
+    basic_auth_password: str = os.getenv("BASIC_AUTH_PASSWORD")
     infoblox = {"master": os.getenv("INFOBLOX_MASTER"),
                 "wapi_version": os.getenv("INFOBLOX_WAPI_VERSION"),
                 "username": os.getenv("INFOBLOX_USERNAME"),
