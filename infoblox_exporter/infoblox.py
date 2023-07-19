@@ -39,7 +39,7 @@ disable_warnings(InsecureRequestWarning)
 
 
 class Modules(Enum):
-    NODES = 'nodes'
+    MEMBER_SERVICES = 'member_services'
     DHCP_UTILIZATION = 'dhcp_utilization'
 
 
@@ -53,7 +53,7 @@ def to_list(metric_generator):
 
 
 class InfobloxCollector:
-    def __init__(self, connection: Dict[str, str], target: str, module: str = Modules.NODES.value):
+    def __init__(self, connection: Dict[str, str], target: str, module: str = Modules.MEMBER_SERVICES.value):
         self.target = target
         self.module = module
         self.connector = InfoBlox(connection)
@@ -65,7 +65,7 @@ class InfobloxCollector:
         try:
             all_tasks = []
 
-            if self.module == Modules.NODES.value:
+            if self.module == Modules.MEMBER_SERVICES.value:
                 all_tasks.append(asyncio.create_task(self._collect_node_info()))
             elif self.module == Modules.DHCP_UTILIZATION.value:
                 all_tasks.append(asyncio.create_task(self._collect_dhcp_ranges()))
