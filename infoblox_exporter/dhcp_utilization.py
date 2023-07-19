@@ -19,10 +19,11 @@
 
 """
 
-from typing import Dict, Any, List
-from prometheus_client.core import GaugeMetricFamily
-from infoblox_exporter.transform import Transform
 import logging
+
+from prometheus_client.core import GaugeMetricFamily
+
+from infoblox_exporter.transform import Transform
 
 
 class DHCPUtilization(Transform):
