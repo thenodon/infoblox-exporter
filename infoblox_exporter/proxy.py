@@ -63,7 +63,7 @@ lc.dictConfig(
         "handlers": {
             "console": {"class": "logging.StreamHandler", "formatter": "logfmt"}
         },
-        "loggers": {"": {"handlers": ["console"], "level": "INFO"}},
+        "loggers": {"": {"handlers": ["console"], "level": os.getenv('EXPORTER_LOG_LEVEL', 'INFO')}},
     }
 )
 
@@ -191,7 +191,7 @@ def alive():
 
 
 @app.get("/probe")
-async def probe(target: str, type: str):
+async def probe(target: str, module: str, auth: str = Depends(authorize)):
     start_time = time.time()
 
     if not target or target == "":
@@ -202,7 +202,7 @@ async def probe(target: str, type: str):
     registry = CollectorRegistry()
     try:
 
-        collector = InfobloxCollector(connection=global_settings.infoblox, target=target, module=type)
+        collector = InfobloxCollector(connection=global_settings.infoblox, target=target, module=module)
         registry.register(collector)
 
         duration = Gauge('infoblox_scrape_duration_seconds', 'Time spent processing request', registry=registry)
