@@ -1,6 +1,8 @@
 infoblox-exporter
 ----------------------
-# Overview
+
+> This project is DISCONTINUED, please use [go-infoblox-exporter](https://github.com/thenodon/go-infoblox-exporter) instead
+
 The infoblox-exporter collect metrics from an infoblox master.
 Currently, two types of metrics is supported:
 - Member service and member node service managed by the master.
